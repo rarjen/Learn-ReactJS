@@ -22,6 +22,12 @@ const FormRegister = () => {
         placeholder="*******"
         name="password"
       />
+      <InputForm
+        label="Confirm Password"
+        type="confirmPassword"
+        placeholder="*******"
+        name="confirmPassword"
+      />
       <Button classname="bg-blue-600 w-full">Register</Button>
     </form>
   );
