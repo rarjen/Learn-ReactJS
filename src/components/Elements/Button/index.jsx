@@ -1,10 +1,16 @@
 // Menggunakan arrow function
 const Button = (props) => {
-  const { children = "...", classname = "bg-slate-700" } = props;
+  const {
+    children = "...",
+    classname = "bg-slate-700",
+    onClick = () => {},
+    type = "button",
+  } = props;
   return (
     <button
       className={`h-10 px-6 font-semibold rounded-md ${classname} text-white`}
-      type="submit"
+      type={type}
+      onClick={() => onClick()}
     >
       {children ? children : "None"}
     </button>
