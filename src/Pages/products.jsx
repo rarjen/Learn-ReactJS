@@ -2,6 +2,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import CardProduct from "../components/Fragements/CardProduct";
 import Button from "../components/Elements/Button";
 import Counter from "../components/Fragements/Counter";
+import { getProducts } from "../services/products.service";
 
 const products = [
   {
@@ -39,6 +40,10 @@ const ProductsPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
+  }, []);
+
+  useEffect(() => {
+    getProducts();
   }, []);
 
   useEffect(() => {
