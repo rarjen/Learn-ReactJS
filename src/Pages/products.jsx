@@ -6,34 +6,6 @@ import { getUsername } from "../services/auth.service";
 import { useLogin } from "../hooks/useLogin";
 // import Counter from "../components/Fragements/Counter";
 
-// const products = [
-//   {
-//     id: 1,
-//     name: "Airbus A319",
-//     price: 569000,
-//     image: "/images/airbus.jpg",
-//     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio unde
-//     praesentium eaque aliquam corrupti, doloribus consequatur, laudantium
-//     fugiat placeat a distinctio illum qui cupiditate ipsam quis voluptas,
-//     incidunt facilis! Ut.`,
-//   },
-//   {
-//     id: 2,
-//     name: "Airbus A320",
-//     price: 659000,
-//     image: "/images/airbus.jpg",
-//     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio unde
-//     praesentium eaque aliquam corrupti.`,
-//   },
-//   {
-//     id: 3,
-//     name: "Airbus A330",
-//     price: 719000,
-//     image: "/images/airbus.jpg",
-//     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit.`,
-//   },
-// ];
-
 //Digunakan apabila ingin me-render salah 1 saja
 const ProductsPage = () => {
   const [cart, setCart] = useState([]);
@@ -108,7 +80,7 @@ const ProductsPage = () => {
             products.map((product) => {
               return (
                 <CardProduct key={product.id}>
-                  <CardProduct.Header image={product.image} />
+                  <CardProduct.Header image={product.image} id={product.id} />
                   <CardProduct.Body name={product.title}>
                     {product.description}
                   </CardProduct.Body>
