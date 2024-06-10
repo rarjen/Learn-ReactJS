@@ -1,13 +1,15 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, useContext } from "react";
 import CardProduct from "../components/Fragements/CardProduct";
 import { getProducts } from "../services/products.service";
 import { useLogin } from "../hooks/useLogin";
 import TableCart from "../components/Fragements/TableCart";
 import Navbar from "../components/Layouts/Navbar";
+import { DarkMode } from "../context/DarkMode";
 // import Counter from "../components/Fragements/Counter";
 
 //Digunakan apabila ingin me-render salah 1 saja
 const ProductsPage = () => {
+  const { isDarkMode, setIsDarkMode } = useContext(DarkMode);
   const [products, setProducts] = useState([]);
 
   // menggunakan custom hooks
@@ -22,7 +24,9 @@ const ProductsPage = () => {
   return (
     <Fragment>
       <Navbar />
-      <div className="flex justify-center py-5">
+      <div
+        className={`flex justify-center py-5 ${isDarkMode && "bg-slate-900"} `}
+      >
         <div className="w-4/6 flex flex-wrap">
           {products.length > 0 &&
             products.map((product) => {

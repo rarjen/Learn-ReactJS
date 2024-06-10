@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
 import LoginPage from "./Pages/login.jsx";
 import RegisterPage from "./Pages/register.jsx";
 import ErrorPage from "./Pages/errorPage.jsx";
@@ -9,6 +9,7 @@ import ProductsPage from "./Pages/products.jsx";
 import ProfilePage from "./Pages/profile.jsx";
 import DetailProductPage from "./Pages/detailProduct.jsx";
 import { Provider } from "react-redux";
+import DarkModeContextProvider from "./context/DarkMode.jsx";
 import store from "./redux/store.js";
 
 const router = createBrowserRouter([
@@ -42,7 +43,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
+      <DarkModeContextProvider>
+        <RouterProvider router={router} />
+      </DarkModeContextProvider>
     </Provider>
   </React.StrictMode>
 );
